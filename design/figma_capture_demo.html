@@ -17,7 +17,7 @@
 <style>.rule-search{display:flex;gap:10px;margin-bottom:16px}.rule-search input{width:320px;height:40px;padding:0 12px;border:1px solid var(--line);border-radius:9px}.pager{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;color:var(--muted);font-size:13px}.pager-actions{display:flex;gap:8px}.risk-point-card{padding:18px;margin:12px 0;border:1px solid #dfe6ef;border-radius:12px;background:#fafbfe}.risk-point-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.risk-point-head b{font-size:16px}.risk-point-card textarea{min-height:82px}.example-grid{display:grid;grid-template-columns:1.4fr .6fr 1.4fr;gap:12px}.example-cell{padding:14px;border:1px solid #e0e6ef;border-radius:10px;background:#fafbfe}.example-cell label{display:block;font-size:12px;font-weight:700;color:#66748a;margin-bottom:8px}.example-cell textarea,.example-cell select{width:100%;border:1px solid #dbe3ef;border-radius:8px;background:#fff;padding:9px}.example-cell textarea{min-height:82px}</style>
 <section class="screen shell" id="rulesNew"><aside class="sidebar"><div class="brand"><span class="logo">AI</span>AI智契</div><div class="nav-label">核心功能</div><button class="side-link" data-go="review"><i>✦</i>合同审核</button><button class="side-link" data-go="apps"><i>▦</i>应用中心</button><div class="nav-label">管理</div><button class="side-link on" data-go="rules"><i>⚙</i>配置中心</button><div class="side-foot"><span class="avatar">YL</span><span>伊路<br>企业管理员</span></div></aside><main class="main"><header class="topbar"><h2>配置中心</h2><div class="top-actions"><span>规则管理</span></div></header><div class="page"><div class="rule-head"><div><h1>审核规则</h1><p style="color:var(--muted);margin:6px 0 0">共 50 条规则，统一管理 AI 合同审核标准</p></div><button class="btn primary" data-go="ruleEditNew">＋ 新建规则</button></div><div class="rule-search"><input id="ruleSearch50" placeholder="搜索规则名称或条款类型"><button class="btn primary" id="ruleSearchBtn50">检索</button><button class="btn" id="ruleReset50">重置</button></div><section class="card"><table class="table"><thead><tr><th style="width:24%">规则名称</th><th style="width:15%">条款类型</th><th style="width:12%">风险等级</th><th style="width:18%">适用合同</th><th style="width:10%">状态</th><th style="width:12%">更新时间</th><th style="width:9%">操作</th></tr></thead><tbody id="ruleRows50"></tbody></table><div class="pager"><span id="rulePageInfo50">第 1 页</span><div class="pager-actions"><button class="btn" id="rulePrev50">上一页</button><button class="btn" id="ruleNext50">下一页</button></div></div></section></div></main></section>
 <section class="screen shell" id="ruleEditNew"><aside class="sidebar"><div class="brand"><span class="logo">AI</span>AI智契</div><div class="nav-label">核心功能</div><button class="side-link" data-go="review"><i>✦</i>合同审核</button><button class="side-link" data-go="apps"><i>▦</i>应用中心</button><div class="nav-label">管理</div><button class="side-link on" data-go="rules"><i>⚙</i>配置中心</button><div class="side-foot"><span class="avatar">YL</span><span>伊路<br>企业管理员</span></div></aside><main class="main"><header class="topbar"><h2>配置中心 · 新建规则</h2><div class="top-actions"><button class="btn" data-go="rules">返回规则列表</button></div></header><div class="page"><div class="title-row"><div><h1>新建审核规则</h1><p>配置条款信息、检索风险点与输出示例</p></div></div><form class="rule-form" id="ruleFormNew"><div class="grid2"><div class="field"><label>条款类型</label><select><option>验收条款</option><option>违约责任</option><option>知识产权</option><option>付款条款</option></select></div><div class="field"><label>规则名称</label><input required value="禁止默示验收"></div><div class="field wide"><label>规则描述</label><textarea>识别合同中的默示验收、低违约金上限等可能损害我方权益的表述。</textarea></div></div><div class="rule-box"><div style="display:flex;justify-content:space-between;align-items:center"><div><h3 style="margin:0">检索规则</h3><p style="margin:5px 0 0;color:var(--muted);font-size:13px">每个风险点分别配置原文与风险说明</p></div><button type="button" class="btn" id="addRiskPoint">＋ 新增风险点</button></div><div id="riskPointList"><div class="risk-point-card"><div class="risk-point-head"><b>风险点一</b><span class="tag red">高风险</span></div><div class="field"><label>原文</label><textarea>若甲方在约定期限内未提出书面异议，则视为项目自动验收通过。</textarea></div><div class="field"><label>风险点</label><textarea>默示验收可能导致尚未发现的质量问题被默认接受，损害我方权益。</textarea></div></div><div class="risk-point-card"><div class="risk-point-head"><b>风险点二</b><span class="tag amber">中风险</span></div><div class="field"><label>原文</label><textarea>乙方逾期交付的，违约金累计上限为合同总金额的 3%。</textarea></div><div class="field"><label>风险点</label><textarea>违约金累计上限偏低，可能不足以覆盖延期造成的实际损失。</textarea></div></div></div></div><div class="rule-box"><h3>示例</h3><div class="example-grid"><div class="example-cell"><label>合同原文</label><textarea>甲方逾期未反馈，视为自动验收通过。</textarea></div><div class="example-cell"><label>风险级别</label><select><option>高风险</option><option>中风险</option><option>低风险</option></select></div><div class="example-cell"><label>修改建议</label><textarea>删除自动验收表述，改为双方签署书面验收单后方视为验收完成。</textarea></div></div></div><div class="actions"><button type="button" class="btn" data-go="rules">取消</button><button class="btn primary" type="submit">保存规则</button></div></form></div></main></section>
-<section class="screen shell" id="categoriesNew"><aside class="sidebar"><div class="brand"><span class="logo">AI</span>AI智契</div><div class="nav-label">核心功能</div><button class="side-link" data-go="review"><i>✦</i>合同审核</button><button class="side-link" data-go="apps"><i>▦</i>应用中心</button><div class="nav-label">管理</div><button class="side-link on" data-go="rules"><i>⚙</i>配置中心</button><div class="side-foot"><span class="avatar">YL</span><span>伊路<br>企业管理员</span></div></aside><main class="main"><header class="topbar"><h2>配置中心</h2><div class="top-actions"><span>规则分类管理</span></div></header><div class="page"><div class="rule-head"><div><h1>规则分类</h1><p style="color:var(--muted);margin:6px 0 0">先建立规则分类，再定义分类下的风险点</p></div><button class="btn primary" data-go="categoryCreate">＋ 新建规则分类</button></div><div class="rule-search"><input id="categorySearch" placeholder="搜索规则分类名称"><button class="btn primary" id="categorySearchBtn">检索</button><button class="btn" id="categoryResetBtn">重置</button></div><section class="card"><table class="table"><thead><tr><th style="width:22%">规则分类名称</th><th style="width:25%">分类说明</th><th style="width:18%">关联合同类型</th><th style="width:10%">风险点</th><th style="width:10%">状态</th><th style="width:9%">更新时间</th><th style="width:6%">操作</th></tr></thead><tbody id="categoryRows"></tbody></table><div class="pager"><span id="categoryPageInfo"></span><div class="pager-actions"><button class="btn" id="categoryPrev">上一页</button><button class="btn" id="categoryNext">下一页</button></div></div></section></div></main></section>
+<section class="screen shell" id="categoriesNew"><aside class="sidebar"><div class="brand"><span class="logo">AI</span>AI智契</div><div class="nav-label">核心功能</div><button class="side-link" data-go="review"><i>✦</i>合同审核</button><button class="side-link" data-go="apps"><i>▦</i>应用中心</button><div class="nav-label">管理</div><button class="side-link on" data-go="rules"><i>⚙</i>配置中心</button><div class="side-foot"><span class="avatar">YL</span><span>伊路<br>企业管理员</span></div></aside><main class="main"><header class="topbar"><h2>配置中心</h2><div class="top-actions"><span id="cfgTopAction">合同类型管理</span></div></header><div class="page"><div id="cfgTabs" class="cfg-tabs"><button class="cfg-tab on" data-cfg="points">审查点维护</button><button class="cfg-tab" data-cfg="ctypes">合同类型-立场配置</button></div><div id="cfgPoints"></div><div id="cfgCtypes" hidden></div><div id="cfgRelation" hidden></div></div></main></section>
 <section class="screen shell" id="categoryCreate"><aside class="sidebar"><div class="brand"><span class="logo">AI</span>AI智契</div><div class="nav-label">核心功能</div><button class="side-link" data-go="review"><i>✦</i>合同审核</button><button class="side-link" data-go="apps"><i>▦</i>应用中心</button><div class="nav-label">管理</div><button class="side-link on" data-go="rules"><i>⚙</i>配置中心</button><div class="side-foot"><span class="avatar">YL</span><span>伊路<br>企业管理员</span></div></aside><main class="main"><header class="topbar"><h2>新建规则分类</h2><div class="top-actions"><button class="btn" data-go="rules">返回分类列表</button></div></header><div class="page"><div class="title-row"><div><h1>创建规则分类</h1><p>定义分类名称和适用范围，下一步配置风险点</p></div></div><form class="rule-form" id="categoryForm"><div class="field"><label>规则分类名称</label><input id="categoryNameInput" required value="交易条款核查"></div><div class="field"><label>分类说明</label><textarea>识别付款、交付、验收、违约责任等交易条款中的风险。</textarea></div><div class="field"><label>关联合同类型</label><div class="contract-type-options"><label><input type="checkbox" checked>采购合同</label><label><input type="checkbox" checked>服务合同</label><label><input type="checkbox">销售合同</label><label><input type="checkbox">租赁合同</label><label><input type="checkbox">合作协议</label><label><input type="checkbox">通用合同</label></div></div><div class="actions"><button type="button" class="btn" data-go="rules">取消</button><button class="btn primary" type="submit">下一步：定义风险点</button></div></form></div></main></section>
 <div class="toast" id="toast"></div><script>
 const contracts=[{name:'智慧园区软件采购合同',a:'华城数字建设有限公司',b:'云启科技有限公司',type:'采购合同',risk:'高风险 3',riskClass:'red',time:'今天 10:20'},{name:'年度技术服务框架协议',a:'远航实业集团',b:'新程信息技术有限公司',type:'服务合同',risk:'中风险 5',riskClass:'amber',time:'今天 09:24'},{name:'办公场地租赁合同',a:'智创产业发展有限公司',b:'城发置业有限公司',type:'租赁合同',risk:'低风险',riskClass:'green',time:'昨天 16:12'},{name:'品牌联合营销协议',a:'华城数字建设有限公司',b:'星河传媒有限公司',type:'合作协议',risk:'中风险 2',riskClass:'amber',time:'06-17'},{name:'设备维保服务合同',a:'启明制造有限公司',b:'恒远技术服务有限公司',type:'服务合同',risk:'低风险',riskClass:'green',time:'06-16'}];const screens=[...document.querySelectorAll('.screen')];function go(id){screens.forEach(s=>s.classList.toggle('active',s.id===id));scrollTo(0,0);if(id==='apps')renderContracts()}document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)go(g.dataset.go);const p=e.target.closest('[data-prompt]');if(p){document.querySelector('#chatInput').value=p.dataset.prompt;sendMessage()}});function renderContracts(){const q1=document.querySelector('#fName').value.trim(),q2=document.querySelector('#fPartyA').value.trim(),q3=document.querySelector('#fPartyB').value.trim();const rows=contracts.filter(x=>x.name.includes(q1)&&x.a.includes(q2)&&x.b.includes(q3));document.querySelector('#count').textContent=rows.length;document.querySelector('#empty').hidden=rows.length>0;document.querySelector('#contractRows').innerHTML=rows.map((x,i)=>`<tr><td>${x.name}</td><td>${x.a}</td><td>${x.b}</td><td>${x.type}</td><td><span class="tag ${x.riskClass}">${x.risk}</span></td><td>${x.time}</td><td><span class="link" data-result="${i}" data-name="${x.name}">查看审核结果</span></td></tr>`).join('')}document.querySelector('#searchBtn').addEventListener('click',renderContracts);document.querySelector('#resetBtn').addEventListener('click',()=>{['#fName','#fPartyA','#fPartyB'].forEach(s=>document.querySelector(s).value='');renderContracts()});document.querySelector('#contractRows').addEventListener('click',e=>{const t=e.target.closest('[data-result]');if(t){document.querySelector('#resultTitle').textContent=t.dataset.name;go('result')}});function sendMessage(){const input=document.querySelector('#chatInput'),v=input.value.trim();if(!v)return;const box=document.querySelector('#messages');box.insertAdjacentHTML('beforeend',`<div class="bubble user">${v}</div><div class="bubble ai">已收到。我会重点检索合同中的付款、交付、违约责任及知识产权条款。请上传合同文件后开始审核。</div>`);input.value='';box.scrollTop=box.scrollHeight}document.querySelector('#sendButton').addEventListener('click',sendMessage);document.querySelector('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage()});document.querySelector('#uploadFile').addEventListener('click',()=>toast('已选择：智慧园区软件采购合同.docx'));document.querySelector('#newChat').addEventListener('click',()=>{document.querySelectorAll('.bubble').forEach(x=>x.remove());toast('已创建新对话')});document.querySelector('#ruleForm').addEventListener('submit',e=>{e.preventDefault();toast('规则新建成功');setTimeout(()=>go('rules'),700)});function toast(t){const el=document.querySelector('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1500)}renderContracts();
@@ -97,17 +97,17 @@ const defaultOutputBlock=document.querySelector('#defaultAuditOutput');const exa
 </script><style>
 .audit-review-pane .pane-head{border-bottom-color:#dfe5f3;background:#fff}.audit-dimensions{display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid #e5e9f2}.audit-dimensions button{padding:10px 13px;border:0;border-bottom:3px solid transparent;background:none;color:#6f7d92;font-weight:700;cursor:pointer}.audit-dimensions button.on{color:#5369df;border-bottom-color:#25c9bb}.audit-filter button.on,.audit-filter button[data-filter="major"].on{background:linear-gradient(90deg,#586ff5,#7561ff);color:#fff}.audit-group.major{border-color:#cfd7ff;background:#fbfbff}.audit-group.general{border-color:#ccebe7;background:#f9fdfc}.severity.major{background:#586ff5}.severity.general{background:#22aa9d}.risk-card-actions{display:flex;align-items:center;gap:8px}.move-risk{height:34px;padding:0 9px;border:1px solid #d6deea;border-radius:8px;background:#fff;color:#536177}.risk-delete{height:34px;padding:0 10px;border:1px solid #f0c6cb;border-radius:8px;background:#fff;color:#d64e61;cursor:pointer}.category-context{padding:14px 16px;margin-bottom:16px;border:1px solid #cfd7ff;border-radius:11px;background:#f5f7ff}.category-context span{color:#6d7b91;font-size:13px}.category-context b{display:block;margin-top:5px;color:#394fc4;font-size:18px}
 </style><script>
-const goBeforeCategories=go;go=function(id){if(id==='rules'||id==='rulesNew')id='categoriesNew';goBeforeCategories(id);if(id==='categoriesNew')renderCategories()};
+const goBeforeCategories=go;go=function(id){if(id==='rules'||id==='rulesNew')id='categoriesNew';goBeforeCategories(id)};
 const categoryBase=['基础核查','法务风险','财务风险','形式核查','交易条款','主体信息','付款结算','验收交付','知识产权','数据合规'];const categoryData=Array.from({length:50},(_,i)=>({name:categoryBase[i%10]+' '+String(Math.floor(i/10)+1).padStart(2,'0'),desc:['核查主体信息和基础要素完整性','识别权利义务及违约责任风险','检查付款、税务和结算风险','检查签章、附件及文本形式'][i%4],contracts:['采购合同、服务合同','全部合同','销售合同、合作协议','租赁合同、通用合同'][i%4],points:3+(i%8),status:i%9===0?'已停用':'已启用',date:`06-${String(19-(i%15)).padStart(2,'0')}`}));let categoryFiltered=categoryData,categoryPage=1;const categoryPageSize=10;let currentCategoryName='交易条款核查';
-function renderCategories(){const start=(categoryPage-1)*categoryPageSize,rows=categoryFiltered.slice(start,start+categoryPageSize);document.querySelector('#categoryRows').innerHTML=rows.map((r,i)=>`<tr><td>${r.name}</td><td>${r.desc}</td><td>${r.contracts}</td><td>${r.points} 个</td><td><span class="tag ${r.status==='已启用'?'green':''}">${r.status}</span></td><td>${r.date}</td><td><span class="link" data-category-name="${r.name}">定义风险点</span></td></tr>`).join('');const pages=Math.max(1,Math.ceil(categoryFiltered.length/categoryPageSize));document.querySelector('#categoryPageInfo').textContent=`共 ${categoryFiltered.length} 个分类 · 第 ${categoryPage} / ${pages} 页`;document.querySelector('#categoryPrev').disabled=categoryPage<=1;document.querySelector('#categoryNext').disabled=categoryPage>=pages}
-document.querySelector('#categorySearchBtn').addEventListener('click',()=>{const q=document.querySelector('#categorySearch').value.trim();categoryFiltered=categoryData.filter(x=>x.name.includes(q));categoryPage=1;renderCategories()});document.querySelector('#categoryResetBtn').addEventListener('click',()=>{document.querySelector('#categorySearch').value='';categoryFiltered=categoryData;categoryPage=1;renderCategories()});document.querySelector('#categoryPrev').addEventListener('click',()=>{if(categoryPage>1){categoryPage--;renderCategories()}});document.querySelector('#categoryNext').addEventListener('click',()=>{if(categoryPage<Math.ceil(categoryFiltered.length/categoryPageSize)){categoryPage++;renderCategories()}});
+function renderCategories(){}
+if(document.querySelector('#categorySearchBtn'))document.querySelector('#categorySearchBtn').addEventListener('click',()=>{const q=document.querySelector('#categorySearch').value.trim();categoryFiltered=categoryData.filter(x=>x.name.includes(q));categoryPage=1;renderCategories()});if(document.querySelector('#categoryResetBtn'))document.querySelector('#categoryResetBtn').addEventListener('click',()=>{document.querySelector('#categorySearch').value='';categoryFiltered=categoryData;categoryPage=1;renderCategories()});if(document.querySelector('#categoryPrev'))document.querySelector('#categoryPrev').addEventListener('click',()=>{if(categoryPage>1){categoryPage--;renderCategories()}});if(document.querySelector('#categoryNext'))document.querySelector('#categoryNext').addEventListener('click',()=>{if(categoryPage<Math.ceil(categoryFiltered.length/categoryPageSize)){categoryPage++;renderCategories()}});
 function setCategoryContext(name){currentCategoryName=name;let box=document.querySelector('#categoryContext');if(!box){box=document.createElement('div');box.id='categoryContext';box.className='category-context';document.querySelector('#ruleFormNew').insertAdjacentElement('beforebegin',box)}box.innerHTML=`<span>当前规则分类</span><b>${name}</b>`;document.querySelector('#ruleEditNew .title-row h1').textContent='规则分类风险点定义';document.querySelector('#ruleEditNew .title-row p').textContent='在规则分类下新增、删除或移动风险点'}
-document.querySelector('#categoryRows').addEventListener('click',e=>{const t=e.target.closest('[data-category-name]');if(t){setCategoryContext(t.dataset.categoryName);go('ruleEditNew')}});document.querySelector('#categoryForm').addEventListener('submit',e=>{e.preventDefault();setCategoryContext(document.querySelector('#categoryNameInput').value.trim()||'未命名规则分类');go('ruleEditNew');toast('规则分类已创建，请继续定义风险点')});
+if(document.querySelector('#categoryRows'))document.querySelector('#categoryRows').addEventListener('click',e=>{const t=e.target.closest('[data-category-name]');if(t){setCategoryContext(t.dataset.categoryName);go('ruleEditNew')}});if(document.querySelector('#categoryForm'))document.querySelector('#categoryForm').addEventListener('submit',e=>{e.preventDefault();setCategoryContext(document.querySelector('#categoryNameInput').value.trim()||'未命名规则分类');go('ruleEditNew');toast('规则分类已创建，请继续定义风险点')});
 function enhanceRiskActions(){document.querySelectorAll('#riskPointList .risk-point-card').forEach(card=>{const head=card.querySelector('.risk-point-head');if(head.querySelector('.risk-card-actions'))return;head.insertAdjacentHTML('beforeend','<div class="risk-card-actions"><button type="button" class="risk-delete">删除</button></div>')})}const riskActionObserver=new MutationObserver(enhanceRiskActions);riskActionObserver.observe(document.querySelector('#riskPointList'),{childList:true,subtree:true});enhanceRiskActions();document.querySelector('#riskPointList').addEventListener('click',e=>{const b=e.target.closest('.risk-delete');if(b){b.closest('.risk-point-card').remove();toast('风险点已删除')}});
 auditReviewGroups[0].dimension='基础核查';auditReviewGroups[1].dimension='法务风险';auditReviewGroups[2].dimension='财务风险';auditReviewGroups.push({level:'general',label:'一般',title:'签章与附件形式',dimension:'形式核查',points:[{desc:'附件及签章要素需复核',analysis:'合同附件清单与正文引用存在不一致，且部分签署页未明确签署日期。',example:'补齐附件清单，核对页码与引用关系，并在签署页填写签署日期、加盖有效印章。'}]});
-const auditFilter=document.querySelector('.audit-filter');auditFilter.insertAdjacentHTML('beforebegin','<div class="audit-dimensions"><button class="on" data-dimension="all">全部</button><button data-dimension="基础核查">基础核查</button><button data-dimension="法务风险">法务风险</button><button data-dimension="财务风险">财务风险</button><button data-dimension="形式核查">形式核查</button></div>');auditFilter.querySelector('[data-filter="all"]').textContent='全部 (4)';auditFilter.querySelector('[data-filter="major"]').textContent='重大风险 (2)';auditFilter.querySelector('[data-filter="general"]').textContent='一般风险 (2)';let currentDimension='all',currentSeverity='all';renderAuditReview=function(filter='all'){currentSeverity=filter;const groups=auditReviewGroups.filter(g=>(currentDimension==='all'||g.dimension===currentDimension)&&(filter==='all'||g.level===filter));document.querySelector('.audit-review-list').innerHTML=groups.map(g=>`<section class="audit-group ${g.level}"><div class="audit-group-title"><span class="severity ${g.level}">${g.label}</span>${g.title}</div>${g.points.map((p,i)=>`<div class="audit-point"><div class="point-no">风险点 ${i+1}</div><h4>风险说明</h4><p>${p.desc}</p><h4>风险分析</h4><p>${p.analysis}</p><h4>修改示例</h4><div class="modify-example">${p.example}</div></div>`).join('')}</section>`).join('')};document.querySelector('.audit-dimensions').addEventListener('click',e=>{const b=e.target.closest('[data-dimension]');if(!b)return;document.querySelectorAll('.audit-dimensions button').forEach(x=>x.classList.toggle('on',x===b));currentDimension=b.dataset.dimension;renderAuditReview(currentSeverity)});renderAuditReview();renderCategories();
+const auditFilter=document.querySelector('.audit-filter');auditFilter.insertAdjacentHTML('beforebegin','<div class="audit-dimensions"><button class="on" data-dimension="all">全部</button><button data-dimension="基础核查">基础核查</button><button data-dimension="法务风险">法务风险</button><button data-dimension="财务风险">财务风险</button><button data-dimension="形式核查">形式核查</button></div>');auditFilter.querySelector('[data-filter="all"]').textContent='全部 (4)';auditFilter.querySelector('[data-filter="major"]').textContent='重大风险 (2)';auditFilter.querySelector('[data-filter="general"]').textContent='一般风险 (2)';let currentDimension='all',currentSeverity='all';renderAuditReview=function(filter='all'){currentSeverity=filter;const groups=auditReviewGroups.filter(g=>(currentDimension==='all'||g.dimension===currentDimension)&&(filter==='all'||g.level===filter));document.querySelector('.audit-review-list').innerHTML=groups.map(g=>`<section class="audit-group ${g.level}"><div class="audit-group-title"><span class="severity ${g.level}">${g.label}</span>${g.title}</div>${g.points.map((p,i)=>`<div class="audit-point"><div class="point-no">风险点 ${i+1}</div><h4>风险说明</h4><p>${p.desc}</p><h4>风险分析</h4><p>${p.analysis}</p><h4>修改示例</h4><div class="modify-example">${p.example}</div></div>`).join('')}</section>`).join('')};document.querySelector('.audit-dimensions').addEventListener('click',e=>{const b=e.target.closest('[data-dimension]');if(!b)return;document.querySelectorAll('.audit-dimensions button').forEach(x=>x.classList.toggle('on',x===b));currentDimension=b.dataset.dimension;renderAuditReview(currentSeverity)});renderAuditReview();
 </script><script>
-document.querySelector('#categoryForm button[type="submit"]').textContent='下一步';
+if(document.querySelector('#categoryForm'))document.querySelector('#categoryForm button[type="submit"]').textContent='下一步';
 </script><style>
 .audit-detail-card{padding:18px;margin-top:14px;border:1px solid #d8e0f5;border-radius:13px;background:#fff}.audit-detail-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #edf0f6}.audit-detail-head h3{margin:0;color:#1f2b40;font-size:17px;line-height:1.45}.audit-detail-section{margin-top:14px}.audit-detail-section h4{margin:0 0 7px;color:#344158;font-size:14px;font-weight:800}.audit-detail-section p{margin:0;color:#4f5d72;font-size:14px;line-height:1.8}.audit-modify-plan{padding-left:18px;margin:0;color:#3f4e65;font-size:14px;line-height:1.8}.audit-clause{margin-top:9px;padding:13px 14px;border-radius:9px;background:#f6f8fc;color:#46546a;font-size:14px;line-height:1.8}.audit-clause .old{color:#6c7fae}.audit-clause .new{color:#e6505f}.audit-category{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:6px;background:#eef1ff;color:#5369df;font-size:12px}
 .upload-progress-layer{position:fixed;left:224px;right:0;top:0;bottom:0;z-index:200;display:none;background:#fff}.upload-progress-layer.show{display:block}.upload-progress-head{height:68px;padding:0 30px;display:flex;align-items:center;border-bottom:1px solid #e1e7ef;font-size:19px;font-weight:800}.upload-progress-body{height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center}.upload-stepper{width:min(760px,78%)}.upload-steps{display:grid;grid-template-columns:1fr 1fr 1fr;position:relative}.upload-steps:before{content:"";position:absolute;left:16.7%;right:16.7%;top:28px;height:4px;border-radius:4px;background:#e7ebf2}.upload-track{position:absolute;left:16.7%;top:28px;height:4px;border-radius:4px;background:linear-gradient(90deg,#586ff5,#25c9bb);width:0;transition:width .25s}.upload-step{position:relative;text-align:center;z-index:2}.upload-step-circle{width:58px;height:58px;margin:0 auto 13px;border:5px solid #e7ebf2;border-radius:50%;display:grid;place-items:center;background:#fff;color:#9aa5b6;font-weight:850}.upload-step.active .upload-step-circle{border-color:#586ff5;color:#586ff5;box-shadow:0 0 0 7px #586ff514}.upload-step.done .upload-step-circle{border-color:#25b99f;background:#25b99f;color:#fff}.upload-step b{display:block;color:#344158;font-size:16px}.upload-step span{display:block;margin-top:7px;color:#8692a5;font-size:13px}.upload-step.done span{color:#25a88f}.upload-progress-note{text-align:center;margin-top:46px;color:#7c899c;font-size:14px}
@@ -129,9 +129,9 @@ renderAuditReview=function(filter='all'){currentSeverity=filter;updateDimensionR
 </script><style>
 .custom-type-trigger{height:38px;padding:0 12px;border:1px dashed #8fa0f5;border-radius:9px;background:#f7f8ff;color:#5369df;font-weight:700;cursor:pointer}.custom-type-editor{display:none;align-items:center;gap:8px;width:100%;margin-top:10px}.custom-type-editor.show{display:flex}.custom-type-editor input{width:260px;height:40px;padding:0 11px;border:1px solid #cfd8e8;border-radius:8px}.custom-type-chip{display:flex;align-items:center;gap:7px;padding:9px 10px;border:1px solid #9eabfa;border-radius:9px;background:#f0f2ff;color:#4054ca;font-size:13px}.custom-type-chip input{width:auto;height:auto;margin:0}.custom-type-remove{border:0;background:none;color:#9a5d66;cursor:pointer;font-size:16px;line-height:1}
 </style><script>
-const categoryTypeOptions=document.querySelector('#categoryForm .contract-type-options');categoryTypeOptions.insertAdjacentHTML('beforeend','<button type="button" class="custom-type-trigger" id="customTypeTrigger">＋ 自定义合同分类</button><div class="custom-type-editor" id="customTypeEditor"><input id="customTypeInput" placeholder="输入合同分类名称，如：软件许可合同"><button type="button" class="btn primary" id="customTypeConfirm">添加</button><button type="button" class="btn" id="customTypeCancel">取消</button></div>');
+const categoryTypeOptions=document.querySelector('#categoryForm .contract-type-options');if(categoryTypeOptions){categoryTypeOptions.insertAdjacentHTML('beforeend','<button type="button" class="custom-type-trigger" id="customTypeTrigger">＋ 自定义合同分类</button><div class="custom-type-editor" id="customTypeEditor"><input id="customTypeInput" placeholder="输入合同分类名称，如：软件许可合同"><button type="button" class="btn primary" id="customTypeConfirm">添加</button><button type="button" class="btn" id="customTypeCancel">取消</button></div>');
 const customTypeEditor=document.querySelector('#customTypeEditor'),customTypeInput=document.querySelector('#customTypeInput');document.querySelector('#customTypeTrigger').addEventListener('click',()=>{customTypeEditor.classList.add('show');customTypeInput.focus()});document.querySelector('#customTypeCancel').addEventListener('click',()=>{customTypeEditor.classList.remove('show');customTypeInput.value=''});
-function addCustomContractType(){const name=customTypeInput.value.trim();if(!name)return;if([...categoryTypeOptions.querySelectorAll('label,.custom-type-chip')].some(x=>x.textContent.trim().replace('×','')===name)){toast('该合同分类已存在');return}customTypeEditor.insertAdjacentHTML('beforebegin',`<div class="custom-type-chip"><input type="checkbox" checked><span>${name}</span><button type="button" class="custom-type-remove" title="删除">×</button></div>`);const ruleTypeSelect=document.querySelector('#relatedContractTypes select');if(ruleTypeSelect&&!([...ruleTypeSelect.options].some(o=>o.value===name)))ruleTypeSelect.add(new Option(name,name,true,true));customTypeInput.value='';customTypeEditor.classList.remove('show');toast(`已新增合同分类「${name}」`)}document.querySelector('#customTypeConfirm').addEventListener('click',addCustomContractType);customTypeInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addCustomContractType()}});categoryTypeOptions.addEventListener('click',e=>{const b=e.target.closest('.custom-type-remove');if(b)b.closest('.custom-type-chip').remove()});
+function addCustomContractType(){const name=customTypeInput.value.trim();if(!name)return;if([...categoryTypeOptions.querySelectorAll('label,.custom-type-chip')].some(x=>x.textContent.trim().replace('×','')===name)){toast('该合同分类已存在');return}customTypeEditor.insertAdjacentHTML('beforebegin',`<div class="custom-type-chip"><input type="checkbox" checked><span>${name}</span><button type="button" class="custom-type-remove" title="删除">×</button></div>`);const ruleTypeSelect=document.querySelector('#relatedContractTypes select');if(ruleTypeSelect&&!([...ruleTypeSelect.options].some(o=>o.value===name)))ruleTypeSelect.add(new Option(name,name,true,true));customTypeInput.value='';customTypeEditor.classList.remove('show');toast(`已新增合同分类「${name}」`)}document.querySelector('#customTypeConfirm').addEventListener('click',addCustomContractType);customTypeInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addCustomContractType()}});categoryTypeOptions.addEventListener('click',e=>{const b=e.target.closest('.custom-type-remove');if(b)b.closest('.custom-type-chip').remove()});}
 </script><style>
 /* 2026-06-21 会议调整：合同类型与审核点解耦、立场选择、可选审核点、状态滑动、风险类型分级、拖拽上传 */
 .meeting-review{width:100%;max-width:1120px;margin:0 auto;padding:28px}.meeting-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}.meeting-head h1{margin:0 0 6px;font-size:25px}.meeting-head p{margin:0;color:var(--muted)}.meeting-stepper{display:grid;grid-template-columns:repeat(3,1fr);margin:8px 0 22px}.meeting-step{text-align:center;color:#9aa5b6;font-weight:700;position:relative}.meeting-step:before{content:"";position:absolute;left:0;right:0;top:17px;height:3px;background:#e3e8f0}.meeting-step:first-child:before{left:50%}.meeting-step:last-child:before{right:50%}.meeting-step span{position:relative;z-index:1;width:36px;height:36px;margin:0 auto 7px;display:grid;place-items:center;border:4px solid #e3e8f0;border-radius:50%;background:#fff}.meeting-step.done{color:#20a96f}.meeting-step.done span{border-color:#20a96f}.meeting-step.on{color:#586ff5}.meeting-step.on span{border-color:#586ff5;box-shadow:0 0 0 5px #586ff512}
@@ -151,9 +151,9 @@ let meetingRole='甲方';
 const review=document.querySelector('#review .review-clean');
 review.innerHTML=`<div class="meeting-review"><div class="meeting-head"><div><h1>发起合同审核</h1><p>上传合同后确认审核立场与审核点，合同类型不再限制可选条款。</p></div><button class="btn" id="meetingReset">重新开始</button></div><div class="meeting-stepper"><div class="meeting-step on" id="meetingStep1"><span>1</span>上传合同</div><div class="meeting-step" id="meetingStep2"><span>2</span>确认审核设置</div><div class="meeting-step" id="meetingStep3"><span>3</span>查看审核结果</div></div><section class="meeting-panel" id="meetingUpload"><div class="meeting-drop" id="meetingDrop"><div class="meeting-drop-icon">⇧</div><h2 id="meetingDropTitle">拖拽合同到此处上传</h2><p id="meetingDropHint">支持 Word、PDF 格式；拖入并松开即可自动解析</p><div class="meeting-drop-actions"><button class="btn primary" id="meetingChoose">选择合同文件</button><button class="btn" id="meetingDemoUpload">使用演示合同</button></div><input id="meetingFile" type="file" accept=".doc,.docx,.pdf" hidden></div><div class="meeting-file-ready" id="meetingFileReady"><span class="upload-only-icon" style="width:42px;height:42px;margin:0;font-size:17px">W</span><div><b id="meetingFileName">智慧园区软件采购合同.docx</b><small>上传完成 · 合同信息已识别</small></div></div></section><section id="meetingSetup" hidden><div class="meeting-form-grid"><div class="meeting-panel"><h3>合同识别结果</h3><p class="meeting-note">AI仅提供识别建议，可由用户手动调整。</p><div class="meeting-field"><label>合同类型 <span class="meeting-tag">AI识别</span></label><select id="meetingContractType"><option>采购合同</option><option>服务合同</option><option>销售合同</option><option>租赁合同</option><option>合作协议</option><option>其他合同</option></select></div><div class="meeting-field"><label>审核立场 <span style="color:#e95368">*</span></label><div class="meeting-role-grid"><button class="meeting-role on" data-meeting-role="甲方"><b>甲方立场</b><small>重点保护采购方、委托方权益</small></button><button class="meeting-role" data-meeting-role="乙方"><b>乙方立场</b><small>重点保护供应方、承接方权益</small></button></div></div><div class="meeting-logic">合同类型只用于识别、归档和检索；审核规则由本次所选审核点独立决定，两者不做强绑定。</div></div><div class="meeting-panel"><h3>选择审核点</h3><p class="meeting-note">审核点为可选项，默认推荐常用项，可按本次审核目的增减。</p><div class="meeting-point-list">${meetingPoints.map(p=>`<label class="meeting-point"><input type="checkbox" value="${p.id}" checked><span><b>${p.name}</b><small>${p.desc}</small></span></label>`).join('')}</div><button class="btn" id="meetingToggle" style="margin-top:12px">取消全选</button></div></div><div class="meeting-actions"><button class="btn" id="meetingBack">返回上传</button><button class="btn primary" id="meetingStart">开始智能审核</button></div></section></div>`;
 const setup=document.querySelector('#meetingSetup');
-setup.innerHTML=`<div class="meeting-panel" style="margin-bottom:18px;padding:18px 22px;text-align:center"><div style="font-size:15px"><b>智慧园区软件采购合同.docx</b> 已上传成功</div><div style="margin-top:4px;color:var(--muted)">AI初步识别该合同为：<b style="color:#344158">采购合同</b>　<span class="meeting-tag">识别置信度 96%</span></div></div><div class="meeting-form-grid"><div class="meeting-panel"><h3>1. 选择您的审核立场</h3><p class="meeting-note">AI将基于所选立场进行侧重分析和修改建议。</p><div class="meeting-field"><label>我方身份</label><select id="meetingRoleSelect"><option value="甲方">甲方（采购方 / 委托方）</option><option value="乙方">乙方（供应方 / 承接方）</option></select></div><div class="meeting-logic">演示说明：选择甲方后，重点关注付款前置条件、验收权、知识产权归属和乙方违约责任。</div></div><div class="meeting-panel"><h3>2. 确认合同类型与审核范围</h3><p class="meeting-note">系统自动匹配推荐模板，用户可手动调整。</p><div class="meeting-field"><label>合同类型 <span class="meeting-tag">AI推荐</span></label><select id="meetingContractType"><option>采购合同</option><option>服务合同</option><option>销售合同</option><option>租赁合同</option><option>合作协议</option><option>其他合同</option></select></div><div class="meeting-field"><label>审核模板</label><select id="meetingTemplate"><option>采购合同通用审核模板</option><option>软件及技术采购专项模板</option><option>通用合同风险审核模板</option></select></div><div style="margin-top:12px;color:var(--muted);font-size:12px">合同类型用于推荐模板、归档和检索；审核点仍可跨合同类型自由选择。</div></div></div><div class="meeting-panel" style="margin-top:18px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><h3>审核点及核心目的</h3><p class="meeting-note">默认勾选AI根据合同类型推荐的审核点，可继续增减。</p></div><span class="meeting-tag">已推荐 8 项</span></div><div class="meeting-point-list" style="grid-template-columns:repeat(3,1fr)">${[
+setup.innerHTML=`<div class="meeting-panel" style="margin-bottom:18px;padding:18px 22px;text-align:center"><div style="font-size:15px"><b>智慧园区软件采购合同.docx</b> 已上传成功</div><div style="margin-top:4px;color:var(--muted)">AI初步识别该合同为：<b style="color:#344158">采购合同</b>　<span class="meeting-tag">识别置信度 96%</span></div></div><div class="meeting-form-grid"><div class="meeting-panel"><h3>1. 选择您的审核立场</h3><p class="meeting-note">AI将基于所选立场进行侧重分析和修改建议。</p><div class="meeting-field"><label>我方身份</label><select id="meetingRoleSelect"><option value="甲方">甲方（采购方 / 委托方）</option><option value="乙方">乙方（供应方 / 承接方）</option></select></div><div class="meeting-logic">演示说明：选择甲方后，重点关注付款前置条件、验收权、知识产权归属和乙方违约责任。</div></div><div class="meeting-panel"><h3>2. 确认合同类型</h3><p class="meeting-note">系统自动识别，用户可手动调整。</p><div class="meeting-field"><label>合同类型 <span class="meeting-tag">AI推荐</span></label><select id="meetingContractType"><option>采购合同</option><option>服务合同</option><option>销售合同</option><option>租赁合同</option><option>合作协议</option><option>其他合同</option></select></div><div style="margin-top:12px;color:var(--muted);font-size:12px">合同类型用于归档和检索；审核点仍可跨合同类型自由选择。</div></div></div><div class="meeting-panel" style="margin-top:18px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><h3>审核点及核心目的</h3><p class="meeting-note">默认勾选AI根据合同类型推荐的审核点，可继续增减。</p></div><span class="meeting-tag">已推荐 8 项</span></div><div class="meeting-point-list" style="grid-template-columns:repeat(3,1fr)">${[
 ['base','主体信息与签约授权','合规与权属风险',true],['scope','标的范围与服务边界','权利义务失衡',true],['payment','价格、发票与付款条件','权利义务失衡',true],['delivery','交付计划与验收机制','履约保障不足',true],['quality','质量保证与售后服务','履约保障不足',true],['ip','知识产权与成果归属','合规与权属风险',true],['data','数据安全与保密义务','合规与权属风险',true],['breach','违约责任与赔偿上限','履约保障不足',true],['termination','合同解除与退出机制','权利义务失衡',false],['dispute','法律适用与争议解决','权利义务失衡',false],['change','需求变更与费用调整','履约保障不足',false],['appendix','附件完整性与签章形式','合规与权属风险',false]
-].map(p=>`<label class="meeting-point"><input type="checkbox" value="${p[0]}" ${p[3]?'checked':''}><span><b>${p[1]}</b><small>${p[2]}</small></span></label>`).join('')}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px"><button class="btn" id="meetingToggle">全部选择</button><span style="color:var(--muted);font-size:12px">审核点与合同类型解耦，按本次业务目的自由组合</span></div></div><div class="meeting-panel" style="margin-top:18px"><h3>自定义审核目标</h3><p class="meeting-note">补充本次审核中特别关注的业务目的。</p><div class="meeting-objective"><b>识别对甲方不利的单方条款</b><span>⌄</span></div><div class="meeting-objective"><b>形成可直接替换的合规文本</b><span>⌄</span></div><div class="meeting-objective"><b>核对附件、报价清单及签章完整性</b><span>⌄</span></div><button class="btn" style="margin-top:10px">＋ 添加自定义目标</button></div><div class="meeting-actions"><button class="btn" id="meetingBack">重新上传</button><button class="btn primary" id="meetingStart">开始分析</button></div>`;
+].map(p=>`<label class="meeting-point"><input type="checkbox" value="${p[0]}" ${p[3]?'checked':''}><span><b>${p[1]}</b><small>${p[2]}</small></span></label>`).join('')}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px"><button class="btn" id="meetingToggle">全部选择</button><span style="color:var(--muted);font-size:12px">审核点与合同类型解耦，按本次业务目的自由组合</span></div></div><div class="meeting-actions"><button class="btn" id="meetingBack">重新上传</button><button class="btn primary" id="meetingStart">开始分析</button></div>`;
 meetingRole=document.querySelector('#meetingRoleSelect').value;document.querySelector('#meetingRoleSelect').addEventListener('change',e=>meetingRole=e.target.value);
 const upload=()=>{document.querySelector('#meetingFileReady').classList.add('show');setTimeout(()=>{document.querySelector('#meetingUpload').hidden=true;document.querySelector('#meetingSetup').hidden=false;document.querySelector('#meetingStep1').className='meeting-step done';document.querySelector('#meetingStep2').className='meeting-step on';toast('合同解析完成，请确认审核设置')},450)};
 const validContractFile=file=>/\.(doc|docx|pdf)$/i.test(file?.name||'');
@@ -175,7 +175,8 @@ const view=new URLSearchParams(location.search).get('view');if(view==='setup'){g
 .meeting-config-tabs{display:flex;gap:8px;margin-bottom:18px;padding:5px;border:1px solid #e0e6ef;border-radius:11px;background:#fff;width:max-content}.meeting-config-tab{height:38px;padding:0 16px;border:0;border-radius:8px;background:transparent;color:#66748a;font-weight:750}.meeting-config-tab.on{background:#eef1ff;color:#4b61dc}.meeting-dimension[hidden]{display:none!important}.meeting-type-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}.meeting-type-stat{padding:15px 17px;border:1px solid #e0e6ef;border-radius:10px;background:#fff}.meeting-type-stat span{display:block;color:var(--muted);font-size:12px}.meeting-type-stat b{font-size:22px}.meeting-definition{max-width:420px;color:#536078}.meeting-switch-label{display:inline-block;min-width:42px;margin-left:6px;color:#78859a;font-size:12px;vertical-align:middle}
 </style><script>
 (()=>{
-const configPage=document.querySelector('#categoriesNew .page');
+// Legacy configPage block disabled — replaced by new cfg center below
+const configPage=null;
 if(configPage&&!document.querySelector('#meetingConfigTabs')){
   const tabs=document.createElement('div');tabs.id='meetingConfigTabs';tabs.className='meeting-config-tabs';tabs.innerHTML='<button type="button" class="meeting-config-tab on" data-dimension-tab="points">审核点管理</button><button type="button" class="meeting-config-tab" data-dimension-tab="types">合同类型管理</button><button type="button" class="meeting-config-tab" data-dimension-tab="grades">风险分级规则</button>';
   configPage.prepend(tabs);
@@ -273,5 +274,623 @@ installPointAssociationActions();const pointRelationBody=document.querySelector(
 document.addEventListener('click',e=>{const p=e.target.closest('.point-association-action');if(p){e.stopPropagation();openAssociation('point',p.dataset.pointName);return}const t=e.target.closest('.type-association-action');if(t){openAssociation('type',t.dataset.typeName);return}if(e.target.closest('#meetingNewRiskType')){riskLayer.classList.add('show');return}const close=e.target.closest('[data-close-layer]');if(close)document.querySelector('#'+close.dataset.closeLayer)?.classList.remove('show')});
 document.querySelector('#meetingSaveAssociation').addEventListener('click',()=>{associationLayer.classList.remove('show');toast('审核点与合同类型关联已保存')});
 document.querySelector('#meetingSaveRiskRule').addEventListener('click',()=>{const name=document.querySelector('#meetingRiskTypeName').value.trim()||'未命名风险类型',board=document.querySelector('#meetingGradeDimension .meeting-grade-board');if(board&&!([...board.querySelectorAll('h3')].some(x=>x.textContent===name)))board.insertAdjacentHTML('beforeend',`<div class="meeting-grade-card"><h3>${name}</h3><p>已配置高风险、低风险和无风险限定标准。</p><div class="meeting-grade-levels"><span class="high">高风险</span><span class="low">低风险</span><span class="none">无风险</span></div><div class="meeting-grade-rule"><b>状态</b>：已启用</div></div>`);riskLayer.classList.remove('show');toast(`风险类型「${name}」已创建`)});
+})();
+</script><style>
+.cfg-tabs{display:flex;gap:6px;margin-bottom:22px;padding:5px;border:1px solid var(--line);border-radius:12px;background:#fff;width:max-content}
+.cfg-tab{height:38px;padding:0 18px;border:0;border-radius:8px;background:transparent;color:#66748a;font-weight:750;cursor:pointer}
+.cfg-tab.on{background:#eef1ff;color:#4b61dc}
+.cfg-two-col{display:grid;grid-template-columns:280px 1fr;gap:0;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;height:calc(100vh - 210px);min-height:500px}
+.cfg-three-col{display:grid;grid-template-columns:220px 1fr 340px;gap:0;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;height:calc(100vh - 210px);min-height:500px}
+.cfg-col{display:flex;flex-direction:column;border-right:1px solid var(--line);overflow:hidden}
+.cfg-col:last-child{border-right:0}
+.cfg-col-head{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.cfg-col-head h3{margin:0;font-size:14px}
+.cfg-col-body{flex:1;overflow-y:auto;padding:8px}
+.cfg-tree-item{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:9px;cursor:pointer;color:#40506a}
+.cfg-tree-item:hover{background:#f5f7ff}
+.cfg-tree-item.on{background:#eef1ff;color:#4b61dc;font-weight:750}
+.cfg-tree-item .cfg-code{font-size:11px;color:#9aa5b6;margin-left:auto}
+.cfg-tree-item.on .cfg-code{color:#7a8fd4}
+.cfg-tree-toggle{width:18px;height:18px;border:0;background:none;color:#9aa5b6;cursor:pointer;font-size:12px;flex-shrink:0;padding:0;line-height:1}
+.cfg-tree-children{padding-left:22px}
+.cfg-tree-child{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;cursor:pointer;color:#58677e;font-size:13px}
+.cfg-tree-child:hover{background:#f5f7ff}
+.cfg-tree-child.on{background:#eef1ff;color:#4b61dc}
+.cfg-status{width:8px;height:8px;border-radius:50%;background:#20a96f;flex-shrink:0}
+.cfg-status.off{background:#d0d7e2}
+.cfg-edit-panel{padding:20px;overflow-y:auto;flex:1}
+.cfg-edit-panel .field label{font-size:12px;font-weight:700;color:#526077}
+.cfg-edit-panel .field input,.cfg-edit-panel .field select,.cfg-edit-panel .field textarea{border:1px solid #dbe3ef;border-radius:9px;padding:0 12px;height:40px;width:100%;background:#fff}
+.cfg-edit-panel .field textarea{height:auto;min-height:80px;padding:10px 12px}
+.cfg-edit-hint{margin:16px 0 8px;font-size:12px;color:#9aa5b6}
+.cfg-edit-actions{display:flex;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.cfg-edit-actions .btn.danger{border-color:#f0c6cb;color:#d64e61}
+.btn.danger{border-color:#f0c6cb;color:#d64e61}
+.cfg-switch-row{display:flex;align-items:center;gap:10px;padding:12px 0}
+.cfg-switch-row label{font-size:13px;font-weight:700;color:#40506a}
+.cfg-dimension-item{padding:11px 14px;border-radius:9px;cursor:pointer;color:#40506a;margin:2px 0}
+.cfg-dimension-item:hover{background:#f5f7ff}
+.cfg-dimension-item.on{background:#eef1ff;color:#4b61dc;font-weight:750}
+.cfg-point-card{padding:14px;margin:6px 0;border:1px solid #e4e9f2;border-radius:10px;cursor:pointer;background:#fff}
+.cfg-point-card:hover{border-color:#b9c6ff;background:#fafbff}
+.cfg-point-card.on{border-color:#8fa0f5;background:#f3f5ff}
+.cfg-point-card-name{font-weight:750;margin-bottom:4px}
+.cfg-point-card-meta{display:flex;gap:6px;align-items:center}
+.cfg-freq{padding:2px 7px;border-radius:5px;font-size:11px;font-weight:750}
+.cfg-freq.high{background:#ffecef;color:#cf4055}
+.cfg-freq.mid{background:#fff3db;color:#ad7115}
+.cfg-freq.low{background:#e6f7ef;color:#18885d}
+.cfg-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.cfg-chip{padding:4px 9px;border-radius:6px;background:#eef1ff;color:#4b61dc;font-size:12px}
+.cfg-grade-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cfg-grade-card{padding:22px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.cfg-grade-card h3{margin:0 0 8px;font-size:16px}
+.cfg-grade-card>p{margin:0 0 16px;color:var(--muted);font-size:13px}
+.cfg-grade-rule{margin-bottom:10px;padding:12px;border-radius:9px;background:#f6f8fb}
+.cfg-grade-rule b{display:block;margin-bottom:6px;font-size:13px}
+.cfg-grade-rule textarea{width:100%;min-height:72px;padding:8px 10px;border:1px solid #d7dfeb;border-radius:7px;background:#fff;font-size:13px;resize:vertical}
+.cfg-risk-item{padding:12px;margin:6px 0;border:1px solid #e4e9f2;border-radius:9px;cursor:pointer;background:#fff}
+.cfg-risk-item:hover{border-color:#b9c6ff;background:#fafbff}
+.cfg-risk-item.on{border-color:#8fa0f5;background:#f3f5ff}
+.cfg-point-row.on td{background:#f3f5ff}
+.cfg-risk-row.on td{background:#fff4f0}
+.cfg-risk-row:hover td{background:#fafbff}
+.cfg-tree-item:hover{background:#f5f7ff}
+.cfg-tree-item.on{background:#eef1ff;color:#4b61dc;font-weight:750}
+.cfg-tree-child{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;cursor:pointer;color:#58677e;font-size:13px}
+.cfg-tree-child:hover{background:#f5f7ff}
+.cfg-tree-child.on{background:#eef1ff;color:#4b61dc}
+.cfg-stance-btn{height:36px;padding:0 16px;border:1px solid #d6deea;border-radius:9px;background:#fff;color:#40506a;font-weight:750;cursor:pointer}
+.cfg-stance-btn.on{border-color:#586ff5;background:#eef1ff;color:#4b61dc}
+.cfg-rel-item{display:flex;align-items:flex-start;gap:8px;padding:11px 12px;border:1px solid #dfe5ef;border-radius:9px;cursor:pointer;background:#fff}
+.cfg-rel-item:has(input:checked),.cfg-rel-item.on{border-color:#9eabfa;background:#f2f4ff}
+.cfg-rel-item input{margin-top:4px;flex-shrink:0}
+.cfg-rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+</style>
+<script>
+(()=>{
+// ==================== 数据结构 ====================
+const RISK_LEVELS=['高风险','低风险','无风险'];
+
+// 可配置的审查维度
+let dimensionsData=[
+  {id:'dim1',name:'基础检查',desc:'主体信息、资质及基本合规要素'},
+  {id:'dim2',name:'财务检查',desc:'付款、发票、违约金等财务相关条款'},
+  {id:'dim3',name:'一致性检查',desc:'知识产权、数据权属及条款一致性'},
+  {id:'dim4',name:'法务风险',desc:'违约责任、解除权、争议解决'},
+  {id:'dim5',name:'形式核查',desc:'附件完整性、签章页核验'}
+];
+
+// 审查点数据
+// riskPoints: [{id, name, highStd, lowStd, noneStd}]
+// examples: [{id, original, level, analysis, suggestion}]
+// defaultResult: {level, analysis, suggestion}
+let auditPointsData=[
+  {
+    id:'ap1',code:'AP-001',name:'主体信息完整性',dimId:'dim1',
+    desc:'采购合同-甲方立场',
+    instruction:'核查合同双方主体信息是否完整，包括名称、地址、法定代表人及统一社会信用代码。用于向量召回含主体信息相关表述的合同段落。',
+    riskPoints:[
+      {id:'rp1',name:'主体信息完整性核查',
+       highStd:'合同中甲方或乙方名称、地址、法定代表人、统一社会信用代码任一缺失',
+       lowStd:'主体信息存在但不够完整，如仅有名称无地址或无统一社会信用代码',
+       noneStd:'双方主体信息完整，名称、地址、法定代表人、统一社会信用代码均已填写'}
+    ],
+    examples:[
+      {id:'ex1',original:'甲方：华城数字建设有限公司，地址：北京市朝阳区，法定代表人：张三，统一社会信用代码：91110000XXXXXXXXXX',level:'无风险',analysis:'甲方主体信息完整，符合合规要求。',suggestion:''},
+      {id:'ex2',original:'甲方：某公司（其余信息未填写）',level:'低风险',analysis:'主体名称填写但地址、法定代表人及统一社会信用代码均缺失。',suggestion:'补充完整公司注册地址、法定代表人姓名及统一社会信用代码。'},
+      {id:'ex3',original:'甲方：（空白）',level:'高风险',analysis:'甲方主体信息完全缺失，合同无法确认当事人，存在法律效力风险。',suggestion:'补全甲方完整主体信息，包括名称、地址、法定代表人及统一社会信用代码。'}
+    ],
+    defaultResult:{level:'高风险',analysis:'合同中未发现主体信息相关表述，可能存在主体信息完全缺失的风险。',suggestion:'补全合同双方完整主体信息，确保合同法律效力。'}
+  },
+  {
+    id:'ap2',code:'AP-002',name:'违约金上限',dimId:'dim2',
+    desc:'全部合同-甲方立场',
+    instruction:'检查违约金条款中的累计上限是否足以覆盖实际损失。用于召回合同中涉及违约金、赔偿上限的文本段落。',
+    riskPoints:[
+      {id:'rp2',name:'违约金上限合理性',
+       highStd:'违约金累计上限低于合同总金额5%，或无任何违约金约定',
+       lowStd:'违约金累计上限在5%-10%之间，低于通常建议标准',
+       noneStd:'违约金累计上限不低于合同总金额10%，能覆盖主要损失场景'}
+    ],
+    examples:[
+      {id:'ex4',original:'乙方逾期交付的，每日按合同总金额0.03%支付违约金，累计上限3%',level:'高风险',analysis:'累计上限3%过低，难以覆盖延期造成的替代采购成本及业务损失。',suggestion:'将违约金每日比例提高至0.05%，累计上限提高至合同总金额10%。'},
+      {id:'ex5',original:'违约金累计上限为合同总金额8%',level:'低风险',analysis:'8%基本可接受，但低于通常建议的10%标准，保障力度有限。',suggestion:'协商将累计上限提高至10%，或约定与实际损失就高适用。'},
+      {id:'ex6',original:'违约金累计上限为合同总金额15%，且每日不低于0.05%',level:'无风险',analysis:'违约金上限充足，可覆盖大多数延期损失场景。',suggestion:''}
+    ],
+    defaultResult:{level:'低风险',analysis:'合同中未发现违约金相关条款，违约责任约定缺失，存在无法追责的风险。',suggestion:'增加违约金条款，明确违约金比例及累计上限不低于合同总金额10%。'}
+  },
+  {
+    id:'ap3',code:'AP-003',name:'知识产权归属',dimId:'dim3',
+    desc:'采购合同-甲方立场',
+    instruction:'核查合同中知识产权归属、使用许可边界及商业化条件的约定。用于召回含知识产权、数据权属、成果归属相关表述。',
+    riskPoints:[
+      {id:'rp3',name:'知识产权归属清晰度',
+       highStd:'知识产权归属使用"共同所有"等模糊表述，或核心成果权属不明确，缺少许可边界约定',
+       lowStd:'归属有约定但许可范围、商业化条件或使用限制未完整明确',
+       noneStd:'成果归属方明确，许可范围、使用条件和商业化限制均有清晰约定'}
+    ],
+    examples:[
+      {id:'ex7',original:'项目形成的数据及衍生成果由双方共同所有',level:'高风险',analysis:'"共同所有"缺少使用边界、授权范围及商业化约定，可能引发后续权属纠纷。',suggestion:'明确成果归甲方所有，乙方仅保留技术底层的有限使用权，并约定许可范围及期限。'},
+      {id:'ex8',original:'项目成果归甲方所有，乙方保留技术底层使用权',level:'无风险',analysis:'归属清晰，甲方取得成果，乙方保留合理的技术复用权，权利边界明确。',suggestion:''}
+    ],
+    defaultResult:{level:'高风险',analysis:'合同中未发现知识产权归属相关约定，存在成果权属不清的重大风险。',suggestion:'增加知识产权条款，明确项目成果、源代码及数据的权属归属和许可范围。'}
+  }
+];
+
+// 合同类型数据
+let ctData=[
+  {code:'CT-001',name:'采购合同',stance:'甲方',desc:'以购买货物、设备或软件产品为主要目的',enabled:true,linkedPoints:['ap1','ap2','ap3']},
+  {code:'CT-002',name:'服务合同',stance:'甲方',desc:'以专业服务、技术支持或运营服务为主要内容',enabled:true,linkedPoints:['ap1','ap2']},
+  {code:'CT-003',name:'销售合同',stance:'乙方',desc:'我方向客户销售产品或提供配套服务',enabled:true,linkedPoints:['ap2']},
+  {code:'CT-004',name:'租赁合同',stance:'甲方',desc:'涉及场地、设备或资产的租赁使用',enabled:true,linkedPoints:['ap1']},
+  {code:'CT-005',name:'合作协议',stance:'乙方',desc:'双方共同投入资源并约定合作机制',enabled:true,linkedPoints:['ap3']},
+  {code:'CT-006',name:'补充协议',stance:'甲方',desc:'对既有合同内容进行补充、变更或确认',enabled:false,linkedPoints:[]}
+];
+
+// 兼容旧 dimData 引用
+const dimData=dimensionsData.map(d=>({id:d.id,name:d.name,points:[]}));
+
+let selAuditPointId=(auditPointsData[0] && auditPointsData[0].id)||'';
+let editingPoint=null;
+
+
+
+// ==================== Tab1: 审查点维护 ====================
+let selRiskPointId=null;
+let selExampleId=null;
+const cnNums2=['一','二','三','四','五','六','七','八','九','十'];
+
+function lvTag(lv){return `<span class="tag ${lv==='高风险'?'red':lv==='低风险'?'amber':'green'}" style="font-size:11px">${lv}</span>`;}
+
+function buildPointList(){
+  const dimFilter=(document.querySelector('#cfgCatFilter')&&document.querySelector('#cfgCatFilter').value)||'';
+  const search=((document.querySelector('#cfgPointSearch')&&document.querySelector('#cfgPointSearch').value)||'').trim();
+  const pts=auditPointsData.filter(p=>(!dimFilter||p.dimId===dimFilter)&&(!search||p.name.includes(search)));
+  const rows=pts.map(function(p){
+    const dimObj=dimensionsData.find(function(d){return d.id===p.dimId;});
+    const dimName=dimObj?dimObj.name:p.dimId;
+    const defLv=(p.defaultResult&&p.defaultResult.level)||'';
+    return `<tr class="cfg-point-row${selAuditPointId===p.id?' on':''}" data-apt="${p.id}" style="cursor:pointer">
+      <td style="font-weight:750">${p.name}</td>
+      <td style="font-size:12px;color:#6b788e">${dimName}</td>
+      <td style="font-size:12px;color:#6b788e">${p.desc}</td>
+      <td>${lvTag(defLv)}</td>
+      <td><span class="link" data-aptedit="${p.id}">编辑</span></td>
+    </tr>`;
+  }).join('');
+  document.querySelector('#cfgPoints').innerHTML=`
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div style="display:flex;gap:10px">
+        <input id="cfgPointSearch" placeholder="搜索审查点名称" style="width:220px;height:36px;padding:0 12px;border:1px solid #dbe3ef;border-radius:9px" value="${search}">
+        <select id="cfgCatFilter" style="height:36px;padding:0 10px;border:1px solid #dbe3ef;border-radius:9px">
+          <option value="">全部维度</option>
+          ${dimensionsData.map(function(d){return '<option value="'+d.id+'"'+(dimFilter===d.id?' selected':'')+'>'+d.name+'</option>';}).join('')}
+        </select>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" id="cfgMgmtDim">维度管理</button>
+        <button class="btn primary" id="cfgNewPoint">＋ 新建审查点</button>
+      </div>
+    </div>
+    <section class="card">
+      <table class="table">
+        <thead><tr><th>审查点名称</th><th style="width:100px">维度</th><th style="width:200px">描述（合同类型-立场）</th><th style="width:80px">默认结果</th><th style="width:60px">操作</th></tr></thead>
+        <tbody>${rows||'<tr><td colspan="5" style="text-align:center;color:#9aa5b6;padding:30px">暂无审查点</td></tr>'}</tbody>
+      </table>
+    </section>`;
+  document.querySelector('#cfgPoints').addEventListener('input',function(e){
+    if(e.target.id==='cfgPointSearch'||e.target.id==='cfgCatFilter')buildPointList();
+  });
+  document.querySelector('#cfgPoints').addEventListener('click',function(e){
+    if(e.target.id==='cfgMgmtDim'){openDimMgmt();return}
+    if(e.target.id==='cfgNewPoint'){openPointEdit(null);return}
+    const ed=e.target.closest('[data-aptedit]');if(ed){openPointEdit(ed.dataset.aptedit);return}
+    const row=e.target.closest('[data-apt]');if(row){selAuditPointId=row.dataset.apt;buildPointList();}
+  });
+}
+
+function openPointEdit(id){
+  editingPoint=id?JSON.parse(JSON.stringify(auditPointsData.find(function(p){return p.id===id;})))||null:null;
+  if(!editingPoint&&!id){
+    const newId='ap'+Date.now();
+    editingPoint={id:newId,code:'AP-NEW',name:'',desc:'',dimId:(dimensionsData[0]&&dimensionsData[0].id)||'',instruction:'',riskPoints:[],examples:[],defaultResult:{level:'高风险',analysis:'',suggestion:''}};
+  }
+  selRiskPointId=null;selExampleId=null;
+  renderPointEdit();
+}
+
+function renderPointEdit(){
+  // 替换节点以清除旧事件监听器
+  const oldEl=document.querySelector('#cfgPoints');
+  const newEl=oldEl.cloneNode(false);
+  oldEl.parentNode.replaceChild(newEl,oldEl);
+
+  const p=editingPoint;
+  const riskRows=p.riskPoints.map(function(r,i){
+    return `<tr class="cfg-risk-row${selRiskPointId===r.id?' on':''}" data-risk="${r.id}" style="cursor:pointer">
+      <td>${i+1}</td>
+      <td style="font-size:13px;color:#4e5b70">${r.name}</td>
+      <td><button class="btn danger" data-delrisk="${r.id}" style="height:26px;padding:0 8px;font-size:12px">删除</button></td>
+    </tr>`;
+  }).join('');
+  const selRisk=p.riskPoints.find(function(r){return r.id===selRiskPointId;})||null;
+  const riskEdit=selRisk?`
+    <div style="margin-top:12px;padding:14px;border:1px solid #cad4ff;border-radius:10px;background:#f8f9ff">
+      <div style="font-size:13px;font-weight:750;margin-bottom:10px">编辑风险点</div>
+      <div class="field"><label>风险点名称</label><input id="rpName" value="${selRisk.name}" style="height:36px"></div>
+      <div class="field"><label style="color:#d84a5e">高风险判断标准</label><textarea id="rpHighStd" style="min-height:64px">${selRisk.highStd||''}</textarea></div>
+      <div class="field"><label style="color:#b27716">低风险判断标准</label><textarea id="rpLowStd" style="min-height:64px">${selRisk.lowStd||''}</textarea></div>
+      <div class="field"><label style="color:#17865e">无风险判断标准</label><textarea id="rpNoneStd" style="min-height:64px">${selRisk.noneStd||''}</textarea></div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="btn primary" id="saveRp" style="height:32px;padding:0 12px">保存</button>
+        <button class="btn" id="cancelRp" style="height:32px;padding:0 12px">取消</button>
+      </div>
+    </div>`:'';
+
+  const selExample=p.examples.find(function(ex){return ex.id===selExampleId;})||null;
+  const exRows=p.examples.map(function(ex,i){
+    return `<tr class="cfg-risk-row${selExampleId===ex.id?' on':''}" data-ex="${ex.id}" style="cursor:pointer">
+      <td>${i+1}</td>
+      <td>${lvTag(ex.level)}</td>
+      <td style="font-size:12px;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${ex.original}</td>
+      <td><button class="btn danger" data-delex="${ex.id}" style="height:26px;padding:0 8px;font-size:12px">删除</button></td>
+    </tr>`;
+  }).join('');
+  const exEdit=selExample?`
+    <div style="margin-top:12px;padding:14px;border:1px solid #cad4ff;border-radius:10px;background:#f8f9ff">
+      <div style="font-size:13px;font-weight:750;margin-bottom:10px">编辑示例</div>
+      <div class="field"><label>合同原文</label><textarea id="exOrig" style="min-height:60px">${selExample.original}</textarea></div>
+      <div class="field"><label>风险等级</label><select id="exLevel">${RISK_LEVELS.map(function(l){return '<option'+(selExample.level===l?' selected':'')+'>'+l+'</option>';}).join('')}</select></div>
+      <div class="field"><label>风险分析</label><textarea id="exAnalysis" style="min-height:60px">${selExample.analysis}</textarea></div>
+      <div id="exSuggField" class="field" style="${selExample.level==='无风险'?'display:none':''}"><label>修改示例</label><textarea id="exSugg" style="min-height:60px">${selExample.suggestion||''}</textarea></div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="btn primary" id="saveEx" style="height:32px;padding:0 12px">保存</button>
+        <button class="btn" id="cancelEx" style="height:32px;padding:0 12px">取消</button>
+      </div>
+    </div>`:'';
+
+  const dr=p.defaultResult||{level:'高风险',analysis:'',suggestion:''};
+  const dimOpts=dimensionsData.map(function(d){return '<option value="'+d.id+'"'+(p.dimId===d.id?' selected':'')+'>'+d.name+'</option>';}).join('');
+
+  document.querySelector('#cfgPoints').innerHTML=`
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <button class="btn" id="backToPointList">← 返回列表</button>
+      <span style="font-size:17px;font-weight:800">${p.name||'新建审查点'}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+      <div class="field"><label>审查点名称</label><input id="apName" value="${p.name}" placeholder="请填写审查点名称"></div>
+      <div class="field"><label>所属维度</label><select id="apDimId">${dimOpts}</select></div>
+      <div class="field" style="grid-column:1/3"><label>描述（合同类型-立场）</label><input id="apDesc" value="${p.desc}" placeholder="如：采购合同-甲方立场"></div>
+      <div class="field" style="grid-column:1/3"><label>审查点说明（用于模型/向量检索）</label><textarea id="apInstruction" style="min-height:80px">${p.instruction}</textarea></div>
+    </div>
+    <div style="padding:16px;margin-bottom:16px;border:1px solid #e4e9f2;border-radius:12px">
+      <div style="font-weight:750;margin-bottom:12px">缺省审查结果（无召回文本时触发）</div>
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:12px;align-items:start">
+        <div class="field"><label>风险等级</label><select id="apDefLevel">${RISK_LEVELS.map(function(l){return '<option'+(dr.level===l?' selected':'')+'>'+l+'</option>';}).join('')}</select></div>
+        <div class="field"><label>风险说明</label><textarea id="apDefAnalysis" style="min-height:72px">${dr.analysis}</textarea></div>
+        <div class="field" id="apDefSuggField" style="${dr.level==='无风险'?'display:none':''}"><label>修改示例</label><textarea id="apDefSugg" style="min-height:72px">${dr.suggestion||''}</textarea></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="border:1px solid #e4e9f2;border-radius:12px;overflow:hidden">
+        <div style="padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;background:#fafbfe">
+          <span style="font-weight:750">风险点列表</span>
+          <button class="btn primary" id="cfgAddRiskPoint" style="height:28px;padding:0 10px;font-size:12px">＋ 新增</button>
+        </div>
+        <table class="table"><thead><tr><th style="width:30px">#</th><th>风险点名称</th><th style="width:50px">操作</th></tr></thead>
+          <tbody>${riskRows||'<tr><td colspan="3" style="text-align:center;color:#9aa5b6;padding:20px">暂无风险点</td></tr>'}</tbody>
+        </table>
+        ${riskEdit}
+      </div>
+      <div style="border:1px solid #e4e9f2;border-radius:12px;overflow:hidden">
+        <div style="padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;background:#fafbfe">
+          <span style="font-weight:750">审查示例</span>
+          <button class="btn primary" id="cfgAddExample" style="height:28px;padding:0 10px;font-size:12px">＋ 新增</button>
+        </div>
+        <table class="table"><thead><tr><th style="width:30px">#</th><th style="width:70px">风险等级</th><th>合同原文（摘要）</th><th style="width:50px">操作</th></tr></thead>
+          <tbody>${exRows||'<tr><td colspan="4" style="text-align:center;color:#9aa5b6;padding:20px">暂无示例</td></tr>'}</tbody>
+        </table>
+        ${exEdit}
+      </div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+      <button class="btn" id="backToPointList2">取消</button>
+      <button class="btn primary" id="saveAuditPoint">保存审查点</button>
+    </div>`;
+
+  document.querySelector('#cfgPoints').addEventListener('change',function(e){
+    if(e.target.id==='exLevel'){
+      const sf=document.querySelector('#exSuggField');
+      if(sf)sf.style.display=e.target.value==='无风险'?'none':'';
+    }
+    if(e.target.id==='apDefLevel'){
+      const sf=document.querySelector('#apDefSuggField');
+      if(sf)sf.style.display=e.target.value==='无风险'?'none':'';
+    }
+  });
+
+  document.querySelector('#cfgPoints').addEventListener('click',function(e){
+    if(e.target.id==='backToPointList'||e.target.id==='backToPointList2'){editingPoint=null;buildPointList();return}
+    if(e.target.id==='saveAuditPoint'){
+      editingPoint.name=document.querySelector('#apName').value.trim()||editingPoint.name;
+      editingPoint.desc=document.querySelector('#apDesc').value.trim();
+      editingPoint.dimId=document.querySelector('#apDimId').value;
+      editingPoint.instruction=document.querySelector('#apInstruction').value.trim();
+      const defLv=document.querySelector('#apDefLevel').value;
+      const defSugg=document.querySelector('#apDefSugg');
+      editingPoint.defaultResult={level:defLv,analysis:document.querySelector('#apDefAnalysis').value.trim(),suggestion:defLv==='无风险'?'':(defSugg?defSugg.value.trim():'')};
+      const idx=auditPointsData.findIndex(function(p){return p.id===editingPoint.id;});
+      if(idx>=0)auditPointsData[idx]=editingPoint;else auditPointsData.push(editingPoint);
+      toast('审查点已保存');editingPoint=null;buildPointList();return;
+    }
+    if(e.target.id==='cfgAddRiskPoint'){
+      const nid='rp'+Date.now();
+      editingPoint.riskPoints.push({id:nid,name:'新风险点',highStd:'',lowStd:'',noneStd:''});
+      selRiskPointId=nid;renderPointEdit();return;
+    }
+    const dr=e.target.closest('[data-delrisk]');
+    if(dr){e.stopPropagation();editingPoint.riskPoints=editingPoint.riskPoints.filter(function(r){return r.id!==dr.dataset.delrisk;});if(selRiskPointId===dr.dataset.delrisk)selRiskPointId=null;renderPointEdit();return}
+    const riskRow=e.target.closest('.cfg-risk-row[data-risk]');
+    if(riskRow&&!e.target.closest('[data-delrisk]')){selRiskPointId=riskRow.dataset.risk;renderPointEdit();return}
+    if(e.target.id==='saveRp'){
+      const r=editingPoint.riskPoints.find(function(x){return x.id===selRiskPointId;});
+      if(r){r.name=document.querySelector('#rpName').value.trim()||r.name;r.highStd=document.querySelector('#rpHighStd').value.trim();r.lowStd=document.querySelector('#rpLowStd').value.trim();r.noneStd=document.querySelector('#rpNoneStd').value.trim();}
+      selRiskPointId=null;renderPointEdit();return;
+    }
+    if(e.target.id==='cancelRp'){selRiskPointId=null;renderPointEdit();return}
+    if(e.target.id==='cfgAddExample'){
+      const nid='ex'+Date.now();
+      editingPoint.examples.push({id:nid,original:'',level:'高风险',analysis:'',suggestion:''});
+      selExampleId=nid;renderPointEdit();return;
+    }
+    const de=e.target.closest('[data-delex]');
+    if(de){e.stopPropagation();editingPoint.examples=editingPoint.examples.filter(function(x){return x.id!==de.dataset.delex;});if(selExampleId===de.dataset.delex)selExampleId=null;renderPointEdit();return}
+    const exRow=e.target.closest('.cfg-risk-row[data-ex]');
+    if(exRow&&!e.target.closest('[data-delex]')){selExampleId=exRow.dataset.ex;renderPointEdit();return}
+    if(e.target.id==='saveEx'){
+      const ex=editingPoint.examples.find(function(x){return x.id===selExampleId;});
+      if(ex){ex.original=document.querySelector('#exOrig').value.trim();ex.level=document.querySelector('#exLevel').value;ex.analysis=document.querySelector('#exAnalysis').value.trim();ex.suggestion=(document.querySelector('#exSugg')?document.querySelector('#exSugg').value.trim():'');}
+      selExampleId=null;renderPointEdit();return;
+    }
+    if(e.target.id==='cancelEx'){selExampleId=null;renderPointEdit();return}
+  });
+}
+
+function buildCfgPoints(){
+  if(editingPoint)renderPointEdit();else buildPointList();
+}
+
+function openDimMgmt(){
+  const dimRows=dimensionsData.map(function(d){
+    return '<tr><td style="font-weight:750">'+d.name+'</td><td style="color:#6b788e;font-size:13px">'+d.desc+'</td><td><span class="link" data-dimeditedit="'+d.id+'">编辑</span> <span class="link" data-dimdel="'+d.id+'" style="color:var(--red)">删除</span></td></tr>';
+  }).join('');
+  document.querySelector('#cfgPoints').innerHTML=`
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <button class="btn" id="backFromDimMgmt">← 返回审查点列表</button>
+      <span style="font-size:17px;font-weight:800">维度管理</span>
+    </div>
+    <div style="max-width:700px">
+      <section class="card" style="margin-bottom:14px">
+        <table class="table">
+          <thead><tr><th>维度名称</th><th>说明</th><th style="width:100px">操作</th></tr></thead>
+          <tbody id="dimMgmtRows">${dimRows||'<tr><td colspan="3" style="text-align:center;color:#9aa5b6;padding:20px">暂无维度</td></tr>'}</tbody>
+        </table>
+      </section>
+      <div id="dimEditPanel" style="display:none;padding:16px;margin-bottom:14px;border:1px solid #cad4ff;border-radius:10px;background:#f8f9ff">
+        <div style="font-weight:750;margin-bottom:12px" id="dimEditTitle">新建维度</div>
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:12px">
+          <div class="field"><label>维度名称</label><input id="dimNameInput" placeholder="如：法务风险"></div>
+          <div class="field"><label>说明</label><input id="dimDescInput" placeholder="描述该维度涵盖的审查范围"></div>
+        </div>
+        <input type="hidden" id="dimEditId">
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn primary" id="saveDimBtn" style="height:32px;padding:0 12px">保存</button>
+          <button class="btn" id="cancelDimBtn" style="height:32px;padding:0 12px">取消</button>
+        </div>
+      </div>
+      <button class="btn primary" id="addDimBtn">＋ 新建维度</button>
+    </div>`;
+  document.querySelector('#cfgPoints').addEventListener('click',function(e){
+    if(e.target.id==='backFromDimMgmt'){buildPointList();return}
+    if(e.target.id==='addDimBtn'){
+      document.querySelector('#dimEditId').value='';
+      document.querySelector('#dimNameInput').value='';
+      document.querySelector('#dimDescInput').value='';
+      document.querySelector('#dimEditTitle').textContent='新建维度';
+      document.querySelector('#dimEditPanel').style.display='block';
+      return;
+    }
+    const ee=e.target.closest('[data-dimeditedit]');
+    if(ee){
+      const d=dimensionsData.find(function(x){return x.id===ee.dataset.dimeditedit;});
+      if(!d)return;
+      document.querySelector('#dimEditId').value=d.id;
+      document.querySelector('#dimNameInput').value=d.name;
+      document.querySelector('#dimDescInput').value=d.desc;
+      document.querySelector('#dimEditTitle').textContent='编辑维度';
+      document.querySelector('#dimEditPanel').style.display='block';
+      return;
+    }
+    const ed=e.target.closest('[data-dimdel]');
+    if(ed){
+      const id=ed.dataset.dimdel;
+      if(auditPointsData.some(function(p){return p.dimId===id;})){toast('该维度下有审查点，请先移除审查点再删除');return}
+      dimensionsData=dimensionsData.filter(function(d){return d.id!==id;});
+      openDimMgmt();return;
+    }
+    if(e.target.id==='saveDimBtn'){
+      const name=document.querySelector('#dimNameInput').value.trim();
+      if(!name){toast('请填写维度名称');return}
+      const editId=document.querySelector('#dimEditId').value;
+      const desc=document.querySelector('#dimDescInput').value.trim();
+      if(editId){
+        const d=dimensionsData.find(function(x){return x.id===editId;});
+        if(d){d.name=name;d.desc=desc;}
+      }else{
+        dimensionsData.push({id:'dim'+Date.now(),name:name,desc:desc});
+      }
+      openDimMgmt();toast('维度已保存');return;
+    }
+    if(e.target.id==='cancelDimBtn'){document.querySelector('#dimEditPanel').style.display='none';return}
+  });
+}
+let selCt2Code=ctData[0].code;
+
+function buildCfgCtypes(){
+  // 重新渲染节点以清除旧监听器
+  const oldEl=document.querySelector('#cfgCtypes');
+  const newEl=oldEl.cloneNode(false);
+  newEl.hidden=oldEl.hidden;
+  oldEl.parentNode.replaceChild(newEl,oldEl);
+
+  const selCt=ctData.find(function(c){return c.code===selCt2Code;})||ctData[0];
+  const linkedIds=selCt.linkedPoints||[];
+
+  // 左侧列表：显示类型名+立场标识
+  const ctListHtml=ctData.map(function(ct){
+    return '<div class="cfg-dimension-item'+(ct.code===selCt2Code?' on':'')+'" data-ct2="'+ct.code+'">'
+      +'<div style="display:flex;align-items:center;gap:6px"><span class="cfg-status'+(ct.enabled?'':' off')+'"></span>'
+      +'<span style="font-weight:'+(ct.code===selCt2Code?'750':'normal')+'">'+ct.name+'</span></div>'
+      +'<div style="font-size:11px;color:#9aa5b6;margin-top:2px">'+ct.stance+'立场 · '+linkedIds.length+'个审查点</div>'
+      +'</div>';
+  }).join('');
+
+  // 右侧：按维度分组展示审查点复选框，并在审查点名下显示 desc
+  const groupHtml=dimensionsData.map(function(dim){
+    const pts=auditPointsData.filter(function(p){return p.dimId===dim.id;});
+    if(!pts.length)return'';
+    const items=pts.map(function(p){
+      const on=linkedIds.includes(p.id);
+      return '<label class="cfg-rel-item'+(on?' on':'')+'" style="display:flex;align-items:flex-start;gap:10px;padding:12px 13px;border:1px solid #dfe5ef;border-radius:10px;background:#fff;cursor:pointer">'
+        +'<input type="checkbox" data-ptlink="'+p.id+'" '+(on?'checked':'')+' style="margin-top:3px;flex-shrink:0">'
+        +'<div><div style="font-weight:750;font-size:13px">'+p.name+'</div>'
+        +'<div style="font-size:12px;color:#9aa5b6;margin-top:2px">'+p.desc+'</div></div>'
+        +'</label>';
+    }).join('');
+    return '<div style="margin-bottom:18px">'
+      +'<div style="font-weight:750;font-size:12px;color:#526077;padding:5px 0 8px;border-bottom:1px solid var(--line);margin-bottom:8px">'+dim.name+'</div>'
+      +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">'+items+'</div>'
+      +'</div>';
+  }).join('');
+
+  const selCount=linkedIds.length;
+
+  document.querySelector('#cfgCtypes').innerHTML=`
+    <div style="display:grid;grid-template-columns:240px 1fr;height:calc(100vh - 210px);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff">
+      <div style="display:flex;flex-direction:column;border-right:1px solid var(--line);overflow:hidden">
+        <div class="cfg-col-head"><h3>合同类型-立场</h3></div>
+        <div class="cfg-col-body">${ctListHtml}</div>
+        <div style="padding:12px;border-top:1px solid var(--line)">
+          <button class="btn primary" id="cfgNewCt2" style="width:100%;height:34px;font-size:13px">＋ 新建</button>
+        </div>
+      </div>
+      <div style="overflow-y:auto;padding:22px 24px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line)">
+          <div>
+            <div style="font-size:18px;font-weight:800">${selCt.name} · ${selCt.stance}立场</div>
+            <div style="color:var(--muted);font-size:13px;margin-top:3px">${selCt.desc||'暂无描述'}</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="meeting-switch${selCt.enabled?' on':''}" type="button" id="cfgCt2Switch"></button>
+            <span style="font-size:12px;color:#78859a" id="cfgCt2SwitchLabel">${selCt.enabled?'已启用':'已停用'}</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+          <div class="field"><label>合同类型名称</label><input id="cfgCtName" value="${selCt.name}"></div>
+          <div class="field"><label>合同立场</label><select id="cfgCtStance" style="height:40px">
+            <option${selCt.stance==='甲方'?' selected':''}>甲方</option>
+            <option${selCt.stance==='乙方'?' selected':''}>乙方</option>
+          </select></div>
+          <div class="field" style="grid-column:1/3"><label>描述</label><input id="cfgCtDesc" value="${selCt.desc}" placeholder="如：以购买货物为主要目的的采购合同"></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <div>
+            <div style="font-weight:750;font-size:13px">审查点选择</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:2px">已选 <b id="cfgCtSelCount">${selCount}</b> 个，发起审核时仍可临时增减</div>
+          </div>
+          <button class="btn" id="cfgCtToggleAll" style="height:30px;padding:0 12px;font-size:12px">${selCount===auditPointsData.length&&auditPointsData.length>0?'取消全选':'全部选择'}</button>
+        </div>
+        <div id="cfgCtGroups">${groupHtml||'<div style="color:#9aa5b6;padding:20px 0">暂无审查点，请先在「审查点维护」中创建</div>'}</div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;padding-top:14px;border-top:1px solid var(--line)">
+          <button class="btn danger" id="cfgCt2Del" style="margin-right:auto">删除该合同类型</button>
+          <button class="btn primary" id="cfgCt2Save">确认保存</button>
+        </div>
+      </div>
+    </div>`;
+
+  document.querySelector('#cfgCtypes').addEventListener('click',function(e){
+    const item=e.target.closest('[data-ct2]');
+    if(item&&!e.target.closest('input')&&!e.target.closest('button')){selCt2Code=item.dataset.ct2;buildCfgCtypes();return}
+    if(e.target.id==='cfgCt2Switch'){
+      const ct=ctData.find(function(c){return c.code===selCt2Code;});if(ct)ct.enabled=!ct.enabled;
+      e.target.classList.toggle('on',ct&&ct.enabled);
+      document.querySelector('#cfgCt2SwitchLabel').textContent=(ct&&ct.enabled)?'已启用':'已停用';return;
+    }
+    if(e.target.id==='cfgCtToggleAll'){
+      const ct=ctData.find(function(c){return c.code===selCt2Code;});if(!ct)return;
+      const all=ct.linkedPoints.length===auditPointsData.length;
+      ct.linkedPoints=all?[]:auditPointsData.map(function(p){return p.id;});
+      buildCfgCtypes();return;
+    }
+    if(e.target.id==='cfgCt2Save'){
+      const ct=ctData.find(function(c){return c.code===selCt2Code;});
+      if(ct){
+        ct.name=document.querySelector('#cfgCtName').value.trim()||ct.name;
+        ct.stance=document.querySelector('#cfgCtStance').value;
+        ct.desc=document.querySelector('#cfgCtDesc').value.trim();
+      }
+      toast('合同类型已保存');buildCfgCtypes();return;
+    }
+    if(e.target.id==='cfgCt2Del'){
+      if(ctData.length<=1){toast('至少保留一个合同类型');return}
+      ctData=ctData.filter(function(c){return c.code!==selCt2Code;});
+      selCt2Code=ctData[0].code;buildCfgCtypes();toast('已删除');return;
+    }
+    if(e.target.id==='cfgNewCt2'){
+      const ncode='CT-'+(Date.now()+'').slice(-4);
+      ctData.push({code:ncode,name:'新合同类型',stance:'甲方',desc:'',enabled:true,linkedPoints:[]});
+      selCt2Code=ncode;buildCfgCtypes();return;
+    }
+  });
+  document.querySelector('#cfgCtypes').addEventListener('change',function(e){
+    const cb=e.target.closest('[data-ptlink]');
+    if(cb){
+      const ct=ctData.find(function(c){return c.code===selCt2Code;});if(!ct)return;
+      const ptId=cb.dataset.ptlink;
+      if(cb.checked){if(!ct.linkedPoints.includes(ptId))ct.linkedPoints.push(ptId);}
+      else ct.linkedPoints=ct.linkedPoints.filter(function(x){return x!==ptId;});
+      cb.closest('.cfg-rel-item').classList.toggle('on',cb.checked);
+      const el=document.querySelector('#cfgCtSelCount');if(el)el.textContent=ct.linkedPoints.length;
+    }
+  });
+}
+
+// ==================== Tab1: 审查点维护（含风险点）====================
+const riskPointsMap={};// 兼容占位，不再使用
+
+// ==================== Tab 切换 & 初始化 ====================
+let cfgInited=false;
+function initCfgCenter(){
+  if(cfgInited)return;cfgInited=true;
+  buildCfgPoints();
+  buildCfgCtypes();
+  document.querySelector('#cfgTabs').addEventListener('click',function(e){
+    const btn=e.target.closest('.cfg-tab');if(!btn)return;
+    const key=btn.dataset.cfg;
+    document.querySelectorAll('.cfg-tab').forEach(function(b){b.classList.toggle('on',b===btn);});
+    document.querySelectorAll('#cfgPoints,#cfgCtypes').forEach(function(el){el.hidden=true;});
+    document.querySelector('#cfg'+key.charAt(0).toUpperCase()+key.slice(1)).hidden=false;
+    const topAction=document.querySelector('#cfgTopAction');
+    if(topAction)topAction.textContent={points:'审查点维护',ctypes:'合同类型-立场配置'}[key]||'';
+  });
+}
+
+const goBeforeCfg=go;
+go=function(id){
+  goBeforeCfg(id);
+  if(id==='categoriesNew')initCfgCenter();
+};
+initCfgCenter();
 })();
 </script></body></html>
